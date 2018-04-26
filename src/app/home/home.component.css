@@ -1,0 +1,17 @@
+.video-image {
+    display: block;
+    margin: 20px auto;
+}
+.volume-buttons {
+    display: block;
+    margin: 0 auto;
+    max-width: 250px;
+}
+.volume-buttons button {
+    display: inline-block;
+    margin: 0 10px;
+}
+.volume-buttons input[type=range] {
+    display: inline-block;
+    width: calc(100% - 55px);
+}

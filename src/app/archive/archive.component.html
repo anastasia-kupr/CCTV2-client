@@ -1,3 +1,24 @@
-<p>
-  archive works!
-</p>
+<!-- <video controls autoplay width="640" height="480">
+    <source id="video" src="http://localhost:3000/video" type="video/mp4">
+</video> -->
+
+<table class="table table-striped table-bordered">
+    <thead class="">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of videoList">
+            <th>
+                <a routerLink="/video/{{item.id}}">{{item.name}}</a>
+            </th>
+            <th>
+                {{item.date}}
+            </th>
+            <th>x</th>
+        </tr>
+    </tbody>
+</table>
