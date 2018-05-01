@@ -30,9 +30,7 @@ export class UserManagementComponent implements OnInit {
   }
 
   onUserModalClick(user): void {
-    console.log('onUserModalClick');
     if (!user) {
-      console.log('!user');
       this.modalData.user = {
         email: '',
         firstName: '',
@@ -41,11 +39,12 @@ export class UserManagementComponent implements OnInit {
         confirmPassword: '',
         role: 'user'
       };
+      this.modalData.changing = false;
       this.changing = false;
       return;
     }
     this.modalData.user = user;
-    console.log('this.modalData.user=', this.modalData.user);
+    this.modalData.changing = true;
     this.changing = this.modalData.changing;
   }
 
@@ -54,7 +53,6 @@ export class UserManagementComponent implements OnInit {
     this.http.get('http://localhost:3000/login/users').subscribe((data: any) => {
       if (data) {
         this.users = data;
-        console.log('this.users=', this.users);
       }
     });
   }

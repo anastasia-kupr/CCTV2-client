@@ -16,7 +16,6 @@ export class ArchiveComponent implements OnInit {
 
   ngOnInit() {
     this.http.get('http://localhost:3000/video/list').subscribe((data: Array<Object>) => {
-      console.log('data=', data);
       this.videoList = data;
     });
   }

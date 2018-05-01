@@ -17,16 +17,10 @@ export class UserModalComponent implements OnInit {
 
   id = Math.random();
 
-  show(): void {
-    console.log('modalData=', this.modalData);
-
-  }
-
   ngOnInit() {
     if (!this.modalData) {
       this.modalData = {user: {email: ''}};
     }
-    console.log('modalData=', this.modalData);
   }
 
 }

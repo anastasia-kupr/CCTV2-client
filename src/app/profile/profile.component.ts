@@ -19,7 +19,6 @@ export class ProfileComponent implements OnInit {
 
     this.http.get('http://localhost:3000/login/user/' + this.userData.email).subscribe((data: any) => {
       if (data) {
-        console.log('data=', data);
           this.user = data;
           this.user.password = "";
       }

@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
       password: this.password,
     }).subscribe((data: any) => {
       if (data && data.token) {
-        console.log('data=', data);
         var token = data.token.accessToken;
         window.localStorage.setItem('token', token);
         window.localStorage.setItem('userData', JSON.stringify( {email: data.user.email, role: data.user.role, uuid: data.user.uuid}));

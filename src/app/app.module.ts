@@ -7,6 +7,9 @@ import { FormsModule }    from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+
 import { HomeComponent } from './home/home.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { VideoComponent } from './video/video.component';
@@ -33,7 +36,8 @@ import { UserModalComponent } from './user-modal/user-modal.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFontAwesomeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

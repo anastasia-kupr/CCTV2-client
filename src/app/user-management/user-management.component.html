@@ -22,7 +22,7 @@
               <td>First Name</td>
               <td>Last Name</td>
               <td>Role</td>
-              <td>Delete User</td>
+              <td style="text-align: center">Delete User</td>
           </tr>
       </thead>
       <tbody>
@@ -39,9 +39,9 @@
               <td class="user-property" data-toggle="modal" data-target="#userModal" data-id="userModal" (click)="onUserModalClick(user)">
                   {{user?user.role:''}}
               </td>
-              <td class="text-center">
+              <td class="text-center"  style="text-align: center">
                   <button type="button" class="btn btn-primary remove-btn" data-href="/delete.php?id=54" data-toggle="modal" data-target="#confirmDelete">
-                      <i class="fas fa-times"></i>
+                      <fa name="times"></fa>
                   </button>
               </td>
           </tr>
