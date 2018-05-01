@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="container settings-container" style="margin-top: 20px;">
+    <label for="userEmail">Email:</label>
+    <br>
+    <div type="email" id="userEmail" autocomplete="off">{{user?user.email:''}}</div>
+    <br>
+    <label for="firstName">First Name:</label>
+    <br>
+    <input [(ngModel)]="user.firstName" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" id="firstName" class="form-control" >
+    <br>
+    <label for="lastName">Last Name:</label>
+    <br>
+    <input [(ngModel)]="user.lastName" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" id="lastName" class="form-control" >
+    <br>
+    <label for="password">Password:</label>
+    <br>
+    <input [(ngModel)]="user.password" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="password" id="password" class="form-control" autocomplete="off">
+    <br>
+    <label for="confirmPassword">Confirm Password:</label>
+    <br>
+    <input [(ngModel)]="user.confirmPassword" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="password" id="confirmPassword" class="form-control" autocomplete="off">
+    <br>
+    <div class="modal-footer">
+        <button id="saveButton" data-dismiss="modal" type="button" class="btn btn-primary" >
+            Save
+        </button>
+    </div>
+</div>

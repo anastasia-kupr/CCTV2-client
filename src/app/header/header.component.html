@@ -9,10 +9,13 @@
     <li role="presentation" class="{{(url==='/archive')?active:notActive}}">
       <a routerLink="/archive">Video Archive</a>
     </li>
+    <li role="presentation" class="{{(url==='/user-management')?active:notActive}}">
+      <a routerLink="/user-management">User Management</a>
+    </li>
   </ul>
   <span class="user-buttons p-2">
     <span class="{{(url==='/profile')?active:notActive}}">
-      <a routerLink="/archive">user</a>
+      <a routerLink="/profile">{{username}}</a>
     </span>
     <span class="{{(url==='/login')?active:notActive}}">
       <a routerLink="/login" (click)="logOut()">{{isUserLoggedIn ? "Log Out" : "Login"}}</a>

@@ -12,6 +12,9 @@ import { ArchiveComponent } from './archive/archive.component';
 import { VideoComponent } from './video/video.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
+import { ProfileComponent } from './profile/profile.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { UserModalComponent } from './user-modal/user-modal.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { AuthService } from './auth.service';
     HomeComponent,
     ArchiveComponent,
     VideoComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    UserManagementComponent,
+    UserModalComponent
   ],
   imports: [
     BrowserModule,

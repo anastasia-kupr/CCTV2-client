@@ -1,0 +1,66 @@
+<app-header></app-header>
+
+<div class="container user-managment-container">
+  <button data-toggle="modal" data-target="#newUserModal" data-id="newUserModal" class="btn btn-primary" (click)="onUserModalClick()">Add new user</button>
+
+  <div id="userModal" class="modal fade" role="dialog" tabindex='-1'>
+      <div class="modal-dialog" role="document">
+          <app-user-modal [(modalData)]="modalData"></app-user-modal>
+      </div>
+  </div>
+
+  <div id="newUserModal" class="modal fade" role="dialog" tabindex='-1'>
+      <div class="modal-dialog" role="document">
+          <app-user-modal [(modalData)]="modalData"></app-user-modal>
+      </div>
+  </div>
+
+  <table class="table table-condensed table-bordered table-striped users-table table-scroll-x">
+      <thead>
+          <tr>
+              <td>Email</td>
+              <td>First Name</td>
+              <td>Last Name</td>
+              <td>Role</td>
+              <td>Delete User</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let user of users">
+              <td class="user-property" data-toggle="modal" data-target="#userModal" data-id="userModal" (click)="onUserModalClick(user)">
+                  {{user?user.email:''}}
+              </td>
+              <td class="user-property" data-toggle="modal" data-target="#userModal" data-id="userModal" (click)="onUserModalClick(user)">
+                  {{user?user.firstName:''}}
+              </td>
+              <td class="user-property" data-toggle="modal" data-target="#userModal" data-id="userModal" (click)="onUserModalClick(user)">
+                  {{user?user.lastName:''}}
+              </td>
+              <td class="user-property" data-toggle="modal" data-target="#userModal" data-id="userModal" (click)="onUserModalClick(user)">
+                  {{user?user.role:''}}
+              </td>
+              <td class="text-center">
+                  <button type="button" class="btn btn-primary remove-btn" data-href="/delete.php?id=54" data-toggle="modal" data-target="#confirmDelete">
+                      <i class="fas fa-times"></i>
+                  </button>
+              </td>
+          </tr>
+
+
+          <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                      <div class="modal-body" style="font-size: 20px; text-align: center;">
+                          Delete user
+                          <span id="username" style="color: #66058e"></span>?
+                      </div>
+                      <div class="modal-footer">
+                          <button class="btn btn-danger btn-ok" ng-click="removeUser()" data-dismiss="modal">Yes</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal" style="width: 70px;">No</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </tbody>
+  </table>
+</div>

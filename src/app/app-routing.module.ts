@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { VideoComponent } from './video/video.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 
 const routes: Routes = [
@@ -14,7 +16,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'archive', component: ArchiveComponent },
   { path: 'video/:id', component: VideoComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'user-management', component: UserManagementComponent }
 ];
 
 

@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   active = 'active';
   notActive = 'notActive';
   isUserLoggedIn: any;
+  username: string;
 
   url = '';
   authService: AuthService;
@@ -44,7 +45,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.isUserLoggedIn = this.authService.getUser();
-    console.log('this.isUserLoggedIn=', this.isUserLoggedIn);
+    this.username = JSON.parse(window.localStorage.getItem('userData')).email;
   }
 
 }

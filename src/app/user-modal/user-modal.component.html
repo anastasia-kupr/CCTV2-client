@@ -1,0 +1,42 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">
+      {{(id==='userModal')?'Update User Data':'Add user'}}
+    </h4>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+  </div>
+  <div class="modal-body">
+    <label for="userEmail" (click)="show()">Email:</label>
+    <br>
+    <input [(ngModel)]="modalData.user.email" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="email" id="{{id + '-modalData.userEmail'}}" class="form-control" autocomplete="off">
+    <br>
+    <label for="firstName">First Name:</label>
+    <br>
+    <input [(ngModel)]="modalData.user.firstName" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" id="{{id + '-firstName'}}" class="form-control">
+    <br>
+    <label for="lastName">Last Name:</label>
+    <br>
+    <input [(ngModel)]="modalData.user.lastName" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" id="{{id + '-lastName'}}" class="form-control">
+    <br>
+    <label for="password">Password:</label>
+    <br>
+    <input [(ngModel)]="modalData.user.password" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="password" id="{{id + '-password'}}" class="form-control" autocomplete="off">
+    <br>
+    <label for="confirmPassword">Confirm Password:</label>
+    <br>
+    <input [(ngModel)]="modalData.user.confirmPassword" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="password" id="{{id + '-confirmPassword'}}" class="form-control"autocomplete="off">
+    <br>
+    <label for="role">Role:</label>
+    <br>
+    <select  [(ngModel)]="modalData.user.role" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" class="custom-select" name="" id="{{id + '-role'}}">
+      <option value="admin">admin</option>
+      <option value="user">user</option>
+    </select>
+    <br>
+  </div>
+  <div class="modal-footer">
+    <button id="{{id + '-saveButton'}}" data-dismiss="modal" type="button" class="btn btn-primary" ng-click="postUser($event)">
+      {{(id==='userModal')?'Update User Data':'Add user'}}
+    </button>
+  </div>
+</div>
