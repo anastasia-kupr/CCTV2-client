@@ -1,5 +1,21 @@
-<ul class="nav nav-pills navigation">
-  <li role="presentation" class="{{(url==='/home')?active:notActive}}" ><a routerLink="/home">Главная страница</a></li>
-  <li role="presentation" class="{{(url==='/archive')?active:notActive}}" ><a routerLink="/archive">Видеоархив</a></li>
-  <li role="presentation" class="{{(url==='/archive')?active:notActive}}" ><a routerLink="/archive">Выйти из системы</a></li>
-</ul>
+<div class="d-flex flex-row align-items-center navigation">
+  <ul class="nav nav-pills d-flex flex-row align-items-center mr-auto p-2">
+    <a routerLink="/home" class="logo">
+      <img src="../../favicon.png" alt="">
+    </a>
+    <li role="presentation" class="{{(url==='/home')?active:notActive}}">
+      <a routerLink="/home">Homepage</a>
+    </li>
+    <li role="presentation" class="{{(url==='/archive')?active:notActive}}">
+      <a routerLink="/archive">Video Archive</a>
+    </li>
+  </ul>
+  <span class="user-buttons p-2">
+    <span class="{{(url==='/profile')?active:notActive}}">
+      <a routerLink="/archive">user</a>
+    </span>
+    <span class="{{(url==='/login')?active:notActive}}">
+      <a routerLink="/login" (click)="logOut()">{{isUserLoggedIn ? "Log Out" : "Login"}}</a>
+    </span>
+  </span>
+</div>

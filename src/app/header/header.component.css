@@ -1,3 +1,12 @@
 .navigation {
     margin: 10px 0;
 }
+.logo {
+    margin-right: 10px;
+}
+.user-buttons {
+    float: right;
+}
+.user-buttons span {
+    margin: 0 5px;
+}

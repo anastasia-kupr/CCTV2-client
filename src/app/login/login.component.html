@@ -1,0 +1,26 @@
+<div class="login-wrapper">
+
+  <div class="title">
+    <span class="logo">
+      <img class="company-logo" src="../../favicon.png" alt="">
+    </span>
+    <h3 class="title">
+      Please Login</h3>
+  </div>
+
+  <form>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input [(ngModel)]="email" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="email" placeholder="you@example.com">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input [(ngModel)]="password" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+
+  </form>
+  <div class="hr"></div>
+  <button type="submit" class="btn btn-primary" (click)="login()">
+    Continue
+  </button>
+</div>
