@@ -18,6 +18,10 @@ import { AuthService } from './auth.service';
 import { ProfileComponent } from './profile/profile.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserModalComponent } from './user-modal/user-modal.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
+
+console.log('AuthInterceptor=', AuthInterceptor);
 
 
 @NgModule({
@@ -37,9 +41,15 @@ import { UserModalComponent } from './user-modal/user-modal.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, 
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi   : true,
+    },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
