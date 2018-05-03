@@ -5,13 +5,13 @@
 
   <div id="userModal" class="modal fade" role="dialog" tabindex='-1'>
       <div class="modal-dialog" role="document">
-          <app-user-modal [(modalData)]="modalData"></app-user-modal>
+          <app-user-modal [(modalData)]="modalData" (onVoted)="onVoted()"></app-user-modal>
       </div>
   </div>
 
   <div id="newUserModal" class="modal fade" role="dialog" tabindex='-1'>
       <div class="modal-dialog" role="document">
-          <app-user-modal [(modalData)]="modalData"></app-user-modal>
+          <app-user-modal [(modalData)]="modalData" (onVoted)="onVoted()"></app-user-modal>
       </div>
   </div>
 
@@ -40,7 +40,7 @@
                   {{user?user.role:''}}
               </td>
               <td class="text-center"  style="text-align: center">
-                  <button type="button" class="btn btn-primary remove-btn" data-href="/delete.php?id=54" data-toggle="modal" data-target="#confirmDelete">
+                  <button type="button" class="btn btn-primary remove-btn" data-toggle="modal" data-target="#confirmDelete" (click)="onRemoveBtnClick(user)">
                       <fa name="times"></fa>
                   </button>
               </td>
@@ -52,10 +52,10 @@
                   <div class="modal-content">
                       <div class="modal-body" style="font-size: 20px; text-align: center;">
                           Delete user
-                          <span id="username" style="color: #66058e"></span>?
+                          <span id="username" style="color: #66058e">{{deleteUser.name}}</span>?
                       </div>
                       <div class="modal-footer">
-                          <button class="btn btn-danger btn-ok" ng-click="removeUser()" data-dismiss="modal">Yes</button>
+                          <button class="btn btn-danger btn-ok" data-dismiss="modal" (click)="removeUser()">Yes</button>
                           <button type="button" class="btn btn-primary" data-dismiss="modal" style="width: 70px;">No</button>
                       </div>
                   </div>

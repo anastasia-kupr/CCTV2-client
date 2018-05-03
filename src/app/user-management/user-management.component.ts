@@ -29,6 +29,11 @@ export class UserManagementComponent implements OnInit {
     changing: true
   }
 
+  deleteUser = {
+    name: '',
+    uuid: ''
+  };
+
   onUserModalClick(user): void {
     if (!user) {
       this.modalData.user = {
@@ -43,18 +48,38 @@ export class UserManagementComponent implements OnInit {
       this.changing = false;
       return;
     }
-    this.modalData.user = user;
+    this.modalData.user = Object.assign({}, user);
     this.modalData.changing = true;
     this.changing = this.modalData.changing;
   }
 
-  ngOnInit() {
+  onVoted() {
+    this.getUsersList();
+  }
 
-    this.http.get('http://localhost:3000/login/users').subscribe((data: any) => {
+  getUsersList(): any {
+    return this.http.get('http://localhost:3000/users/').subscribe((data: any) => {
       if (data) {
         this.users = data;
       }
     });
+  }
+
+  onRemoveBtnClick(user): any {
+
+    this.deleteUser.name = user.email;
+    this.deleteUser.uuid = user.uuid;
+  }
+
+  removeUser(): any {
+    return this.http.delete('http://localhost:3000/user/' + this.deleteUser.uuid).subscribe((data: any) => {
+      this.getUsersList();
+    });
+  }
+
+  ngOnInit() {
+
+    this.getUsersList();
   }
 
 }

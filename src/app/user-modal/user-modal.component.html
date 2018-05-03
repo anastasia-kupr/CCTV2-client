@@ -8,7 +8,7 @@
   <div class="modal-body">
     <label for="userEmail">Email:</label>
     <br>
-    <input [(ngModel)]="modalData.user.email" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="email" id="{{id + '-modalData.userEmail'}}" class="form-control" autocomplete="off">
+    <input [(ngModel)]="modalData.user.email" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="email" id="{{id + '-userEmail'}}" class="form-control" autocomplete="off">
     <br>
     <label for="firstName">First Name:</label>
     <br>
@@ -35,7 +35,7 @@
     <br>
   </div>
   <div class="modal-footer">
-    <button id="{{id + '-saveButton'}}" data-dismiss="modal" type="button" class="btn btn-primary" ng-click="postUser($event)">
+    <button id="{{id + '-saveButton'}}" data-dismiss="modal" type="button" class="btn btn-primary" (click)="postUser($event)">
       {{modalData.changing?'Update User Data':'Add user'}}
     </button>
   </div>

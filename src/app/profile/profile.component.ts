@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
 
     this.userData = JSON.parse(window.localStorage.getItem('userData'));
 
-    this.http.get('http://localhost:3000/login/user/' + this.userData.email).subscribe((data: any) => {
+    this.http.get('http://localhost:3000/user/' + this.userData.uuid).subscribe((data: any) => {
       if (data) {
           this.user = data;
           this.user.password = "";
