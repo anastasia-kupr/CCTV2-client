@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
     username: '',
     role: ''
   };
-  userRole: string = '';
 
   url = '';
   authService: AuthService;

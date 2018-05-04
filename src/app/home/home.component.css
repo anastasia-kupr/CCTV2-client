@@ -15,3 +15,16 @@
     display: inline-block;
     width: calc(100% - 55px);
 }
+.hide {
+    display: none;
+}
+.mute-btn {
+    width: 30px;
+}
+.record-btn {
+    display: block;
+    margin: 0 auto;
+}
+.volume-range {
+    vertical-align: middle;
+}

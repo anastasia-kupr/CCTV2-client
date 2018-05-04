@@ -21,9 +21,6 @@ import { UserModalComponent } from './user-modal/user-modal.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 
-console.log('AuthInterceptor=', AuthInterceptor);
-
-
 @NgModule({
   declarations: [
     AppComponent,
