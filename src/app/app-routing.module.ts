@@ -11,7 +11,7 @@ import { UserManagementComponent } from './user-management/user-management.compo
 
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'archive', component: ArchiveComponent },
