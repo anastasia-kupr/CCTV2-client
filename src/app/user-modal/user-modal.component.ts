@@ -26,6 +26,13 @@ export class UserModalComponent implements OnInit {
   }
 
   postUser($event): any {
+    if (!this.modalData.password) {
+      alert("Passwords is empty");
+      var elem = $(document.querySelector('#password'));
+      elem.focus();
+      $event.stopPropagation();
+      return;
+    }
     if ((!this.modalData.user.email) || this.modalData.user.email.indexOf("@") < 0) {
         alert("Email is not valid");
         var elem = $('#' + this.id + '-userEmail');

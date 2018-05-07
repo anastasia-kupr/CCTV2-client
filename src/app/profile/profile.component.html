@@ -11,6 +11,11 @@
     <label for="lastName">Last Name:</label>
     <br>
     <input [(ngModel)]="user.lastName" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" id="lastName" class="form-control" >
+    <br>    
+    <label for="auth">Two Factor Authentication:</label>
+    <br>
+    <input [(ngModel)]="user.twoFactorAuth" #ctrl="ngModel" [ngModelOptions]="{standalone: true}"  type="checkbox" name="auth" id="auth">
+    <br>
     <br>
     <label for="password">Password:</label>
     <br>
@@ -21,7 +26,7 @@
     <input [(ngModel)]="user.confirmPassword" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="password" id="confirmPassword" class="form-control" autocomplete="off">
     <br>
     <div class="modal-footer">
-        <button id="saveButton" data-dismiss="modal" type="button" class="btn btn-primary" >
+        <button id="saveButton" type="button" class="btn btn-primary" (click)="postUser($event)">
             Save
         </button>
     </div>

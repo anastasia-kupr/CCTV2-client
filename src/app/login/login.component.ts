@@ -28,9 +28,16 @@ export class LoginComponent implements OnInit {
         email: this.email,
         password: this.password,
       }).subscribe((data: any) => {
-        if (data) {
-          this.codeIsSent = true;
+        console.log('data=', data);
+        if (!data) return;
+        if (data.token && data.token.accessToken) {
+          var token = data.token.accessToken;
+          window.localStorage.setItem('token', token);
+          window.localStorage.setItem('userData', JSON.stringify({email: data.user.email, role: data.user.role, uuid: data.user.uuid}));
+          this.router.navigate(['/home']);
+          return;
         }
+        this.codeIsSent = true;
       });
     }
 
