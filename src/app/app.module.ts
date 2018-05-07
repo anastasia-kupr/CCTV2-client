@@ -5,21 +5,22 @@ import { FormsModule }    from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
-import { HomeComponent } from './home/home.component';
-import { ArchiveComponent } from './archive/archive.component';
-import { VideoComponent } from './video/video.component';
-import { LoginComponent } from './login/login.component';
-import { AuthService } from './auth.service';
-import { ProfileComponent } from './profile/profile.component';
-import { UserManagementComponent } from './user-management/user-management.component';
-import { UserModalComponent } from './user-modal/user-modal.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { ArchiveComponent } from './components/archive/archive.component';
+import { VideoComponent } from './components/video/video.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './/services/auth.service';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UserManagementComponent } from './components/user-management/user-management.component';
+import { UserModalComponent } from './components/user-modal/user-modal.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './auth.interceptor';
+import { TokenInterceptor } from './interseptors/token.interceptor';
+import { AuthInterceptor } from './interseptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,11 @@ import { AuthInterceptor } from './auth.interceptor';
     HttpClientModule
   ],
   providers: [AuthService, 
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi   : true,
+    },
     {
       provide : HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

@@ -22,13 +22,11 @@ export class LoginComponent implements OnInit {
   code: string;
 
   login(): any {
-    console.log('this.codeIsSent=', this.codeIsSent);
     if (!this.codeIsSent) {
       return this.http.post('http://localhost:3000/login', {
         email: this.email,
         password: this.password,
       }).subscribe((data: any) => {
-        console.log('data=', data);
         if (!data) return;
         if (data.token && data.token.accessToken) {
           var token = data.token.accessToken;

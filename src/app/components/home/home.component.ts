@@ -12,7 +12,9 @@ export class HomeComponent implements OnInit {
   recording: boolean = false;
   user = {
     username: '',
-    role: ''
+    role: '',
+    uuid: '',
+    password: ''
   };
 
   constructor(private http: HttpClient) {}
@@ -27,11 +29,13 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = JSON.parse(window.localStorage.getItem('userData'));
+    if (window.localStorage.getItem('userData')) this.user = JSON.parse(window.localStorage.getItem('userData'));
+
+    this.http.get('http://localhost:3000/users/').subscribe();
+
     const muteButton = document.getElementById("muteButton");
     let audioTrack;
     audioTrack = document.getElementById("html5_audio");
-    // muteButton.innerHTML = '<fa name="volume-off"></fa>';
     muteButton.addEventListener("click", muter);
     function muter() {
       if (audioTrack.volume == 0) {

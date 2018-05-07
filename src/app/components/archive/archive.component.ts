@@ -38,7 +38,6 @@ export class ArchiveComponent implements OnInit {
   }
 
   showHide($event, day): void {
-    console.log('day=', day);
     let index = this.videoList.findIndex(item => item.day===day);
     if (this.videoList[index].show)
       this.videoList[index].show = false;
