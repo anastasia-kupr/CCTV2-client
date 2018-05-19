@@ -8,23 +8,23 @@
   <div class="modal-body">
     <label for="userEmail">Email:</label>
     <br>
-    <input [(ngModel)]="modalData.user.email" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="email" id="{{id + '-userEmail'}}" class="form-control" autocomplete="off">
+    <input [(ngModel)]="modalData.user.email" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="email" id="{{id + '-userEmail'}}" class="form-control" autocomplete="off" (keyup.enter)=postUser($event)>
     <br>
     <label for="firstName">First Name:</label>
     <br>
-    <input [(ngModel)]="modalData.user.firstName" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" id="{{id + '-firstName'}}" class="form-control">
+    <input [(ngModel)]="modalData.user.firstName" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" id="{{id + '-firstName'}}" class="form-control" (keyup.enter)=postUser($event)>
     <br>
     <label for="lastName">Last Name:</label>
     <br>
-    <input [(ngModel)]="modalData.user.lastName" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" id="{{id + '-lastName'}}" class="form-control">
+    <input [(ngModel)]="modalData.user.lastName" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" id="{{id + '-lastName'}}" class="form-control" (keyup.enter)=postUser($event)>
     <br>
     <label for="password">Password:</label>
     <br>
-    <input [(ngModel)]="modalData.user.password" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="password" id="{{id + '-password'}}" class="form-control" autocomplete="off">
+    <input [(ngModel)]="modalData.user.password" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="password" id="{{id + '-password'}}" class="form-control" autocomplete="off" (keyup.enter)=postUser($event)>
     <br>
     <label for="confirmPassword">Confirm Password:</label>
     <br>
-    <input [(ngModel)]="modalData.user.confirmPassword" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="password" id="{{id + '-confirmPassword'}}" class="form-control"autocomplete="off">
+    <input [(ngModel)]="modalData.user.confirmPassword" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="password" id="{{id + '-confirmPassword'}}" class="form-control"autocomplete="off" (keyup.enter)=postUser($event)>
     <br>
     <label for="role">Role:</label>
     <br>

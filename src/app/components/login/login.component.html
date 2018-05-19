@@ -11,24 +11,24 @@
   <form>
     <div class="form-group">
       <label for="email">Email</label>
-      <input [(ngModel)]="email" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="email"
-        placeholder="you@example.com">
+      <input autofocus [(ngModel)]="email" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="email"
+        placeholder="you@example.com"  (keyup.enter)="login($event)">
     </div>
     <div class="form-group">
       <label for="password">Password</label>
       <input [(ngModel)]="password" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="password" class="form-control"
-        id="password" placeholder="Password">
+        id="password" placeholder="Password" (keyup.enter)="login($event)" >
       <div *ngIf="codeIsSent">
         <br>
         <label for="code">Enter code from email</label>
         <input [(ngModel)]="code" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="code"
-          placeholder="code">
+          placeholder="code"  (keyup.enter)="login($event)" >
       </div>
     </div>
 
   </form>
   <div class="hr"></div>
-  <button type="submit" class="btn btn-primary" (click)="login()">
+  <button type="submit" class="btn btn-primary" (click)="login($event)">
     Continue
   </button>
 </div>

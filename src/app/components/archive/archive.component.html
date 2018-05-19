@@ -4,7 +4,7 @@
         <a class="list-group-item" href="" (click)="showHide($event, day.day)">
             {{day.day}}
         </a>
-        <table *ngIf="day.videos.length&&day.show" class="table table-striped table-bordered">
+        <table *ngIf="day.videos&&day.videos.length&&day.show" class="table table-striped table-bordered">
             <thead class="">
                 <tr>
                     <th scope="col">Name</th>

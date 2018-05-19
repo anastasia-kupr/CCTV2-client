@@ -26,7 +26,7 @@ export class UserModalComponent implements OnInit {
   }
 
   postUser($event): any {
-    if (!this.modalData.password) {
+    if (!this.modalData.user.password) {
       alert("Passwords is empty");
       var elem = $(document.querySelector('#password'));
       elem.focus();

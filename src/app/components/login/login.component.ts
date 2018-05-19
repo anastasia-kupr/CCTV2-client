@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {NgModel} from '@angular/forms';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,23 @@ export class LoginComponent implements OnInit {
   codeIsSent = false;
   code: string;
 
-  login(): any {
+  login($event): any {
+
+    if (!this.email) {
+      alert("Email is empty");
+      var elem = $(document.querySelector('#email'));
+      elem.focus();
+      $event.stopPropagation();
+      return;
+    }
+    if (!this.password) {
+      alert("Password is empty");
+      var elem = $(document.querySelector('#password'));
+      elem.focus();
+      $event.stopPropagation();
+      return;
+    }
+
     if (!this.codeIsSent) {
       return this.http.post('http://localhost:3000/login', {
         email: this.email,
