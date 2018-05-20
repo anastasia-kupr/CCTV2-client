@@ -12,13 +12,13 @@ import { UserManagementComponent } from './components/user-management/user-manag
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'archive', component: ArchiveComponent },
   { path: 'video/:id', component: VideoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'user-management', component: UserManagementComponent }
+  { path: 'user-management', component: UserManagementComponent },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 

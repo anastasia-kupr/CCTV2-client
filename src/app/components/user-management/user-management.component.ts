@@ -14,8 +14,6 @@ export class UserManagementComponent implements OnInit {
     userManagementComponent = this;    
   }
 
-  changing: boolean;
-
   users = [];
   modalData = {
     user: {
@@ -45,12 +43,10 @@ export class UserManagementComponent implements OnInit {
         role: 'user'
       };
       this.modalData.changing = false;
-      this.changing = false;
       return;
     }
     this.modalData.user = Object.assign({}, user);
     this.modalData.changing = true;
-    this.changing = this.modalData.changing;
   }
 
   onVoted() {
