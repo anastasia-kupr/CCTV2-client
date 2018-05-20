@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-archive',
@@ -10,6 +11,7 @@ export class ArchiveComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
+    private authService: AuthService
   ) {}
 
   videoList = [];
@@ -47,7 +49,7 @@ export class ArchiveComponent implements OnInit {
 
   ngOnInit() {
     this.getVideoList();
-    this.user = JSON.parse(window.localStorage.getItem('userData'));
+    this.user = this.authService.getUserData();
   }
 
 }

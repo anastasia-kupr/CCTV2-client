@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {AuthService} from '../../services/auth.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -17,7 +18,10 @@ export class HomeComponent implements OnInit {
     password: ''
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService
+  ) {}
 
   onRecordClick(): any {
     this.recording = true;
@@ -29,7 +33,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (window.localStorage.getItem('userData')) this.user = JSON.parse(window.localStorage.getItem('userData'));
+    if (this.authService.getUserData()) this.user = this.authService.getUserData();
 
     this.http.get('http://localhost:3000/users/').subscribe();
 

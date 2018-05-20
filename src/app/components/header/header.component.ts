@@ -20,14 +20,12 @@ export class HeaderComponent implements OnInit {
   };
 
   url = '';
-  authService: AuthService;
 
   constructor(
     private location: Location,
     private router: Router,
-    authService: AuthService
+    private authService: AuthService
   ) {
-    this.authService = authService;
     this.router.events.subscribe((val) => {
       if (location.path() != '') {
         this.url = location.path();
@@ -48,7 +46,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.isUserLoggedIn = this.authService.getUser();
-    this.user = JSON.parse(window.localStorage.getItem('userData'));
+    this.user = this.authService.getUserData();
   }
 
 }

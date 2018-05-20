@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {AuthService} from '../../services/auth.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -9,7 +10,10 @@ import * as $ from 'jquery';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService
+  ) {}
 
   user: any = {};
   userData: any;
@@ -40,7 +44,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
 
-    this.userData = JSON.parse(window.localStorage.getItem('userData'));
+    this.userData = this.authService.getUserData();
 
     this.http.get('http://localhost:3000/user/' + this.userData.uuid).subscribe((data: any) => {
       if (data) {
