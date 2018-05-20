@@ -51,6 +51,7 @@ export class UserModalComponent implements OnInit {
       return;
     }
     var body = Object.assign({}, this.modalData.user);
+    delete body.confirmPassword;
     if (this.modalData.changing) {
       return this.http.put('http://localhost:3000/user/' + this.modalData.user.uuid, body).subscribe((data: any) => {
         if (!data) return;

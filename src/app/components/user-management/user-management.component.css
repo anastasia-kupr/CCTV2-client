@@ -1,25 +1,33 @@
 .user-managment-container {
-    padding-top: 20px; }
+    padding-top: 20px;
+}
   
-  .users-table {
-    margin-top: 15px; }
-    .users-table input {
-      background-color: transparent;
-      border-color: transparent; }
-    .users-table select {
-      margin-bottom: 0; }
-    .users-table .custom-select:disabled {
-      background-color: transparent;
-      color: inherit; }
-  
-  .text-center {
-    text-align: center; }
-  
-  .user-property {
-    cursor: pointer; }
-  
-  @media (min-width: 540px) {
-    .users-table.table.table-scroll-x {
-      display: table;
-      width: 100%; } }
-  
+.users-table {
+  margin-top: 15px;
+}
+.users-table input {
+  background-color: transparent;
+  border-color: transparent;
+}
+.users-table select {
+  margin-bottom: 0;
+}
+.users-table .custom-select:disabled {
+  background-color: transparent;
+  color: inherit;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.user-property {
+  cursor: pointer;
+}
+
+@media (min-width: 540px) {
+  .users-table.table.table-scroll-x {
+    display: table;
+    width: 100%;
+  }
+}

@@ -2,49 +2,67 @@
     display: inline-block;
 }
 .login-wrapper {
-    max-width: 300px;
-    margin: 0 auto;
-    text-align: center; }
-    .login-wrapper .logo {
-      text-align: center;
-      padding: 50px 0 30px 0; }
-      .login-wrapper .logo img {
-        height: 50px; }
-    .login-wrapper .title {
-      color: rgba(0, 0, 0, 0.5);
-      margin-bottom: 15px; }
-    .login-wrapper .hr {
-      width: 55%;
-      margin: 30px auto;
-      position: relative;
-      height: 1px;
-      -webkit-backface-visibility: hidden;
-      -webkit-transform: translateZ(0) scale(1, 1); }
-      .login-wrapper .hr:after {
-        height: 1px;
-        background: #e8e8e8;
-        background: -moz-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.09) 70%, transparent 100%);
-        background: -webkit-gradient(linear, left top, right top, color-stop(0%, transparent), color-stop(35%, rgba(0, 0, 0, 0.09)), color-stop(70%, rgba(0, 0, 0, 0.09)), color-stop(100%, transparent));
-        background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.09) 70%, transparent 100%);
-        background: -o-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.09) 70%, transparent 100%);
-        background: -ms-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.09) 70%, transparent 100%);
-        background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.09) 70%, transparent 100%);
-        position: absolute;
-        bottom: -1px;
-        content: "";
-        width: 100%;
-        left: 0; }
-    .login-wrapper form {
-      text-align: left; }
-      .login-wrapper form .form-group {
-        margin-bottom: 10px; }
-    .login-wrapper .btn {
-      position: relative; }
-      .login-wrapper .btn i {
-        position: absolute;
-        right: 9px;
-        top: 8px;
-        font-size: 13px; }
-    .login-wrapper .form-group, .login-wrapper .btn {
-      width: 300px;
-      margin: auto; }
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+.login-wrapper .logo {
+  text-align: center;
+  padding: 50px 0 30px 0;
+}
+.login-wrapper .logo img {
+  height: 50px;
+}
+.login-wrapper .title {
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 15px;
+}
+.login-wrapper .hr {
+  width: 55%;
+  margin: 30px auto;
+  position: relative;
+  height: 1px;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1, 1);
+}
+.login-wrapper .hr:after {
+  height: 1px;
+  background: #e8e8e8;
+  background: -moz-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.09) 70%, transparent 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, transparent), color-stop(35%, rgba(0, 0, 0, 0.09)), color-stop(70%, rgba(0, 0, 0, 0.09)), color-stop(100%, transparent));
+  background: -webkit-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.09) 70%, transparent 100%);
+  background: -o-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.09) 70%, transparent 100%);
+  background: -ms-linear-gradient(left, transparent 0%, rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.09) 70%, transparent 100%);
+  background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.09) 70%, transparent 100%);
+  position: absolute;
+  bottom: -1px;
+  content: "";
+  width: 100%;
+  left: 0;
+}
+.login-wrapper form {
+  text-align: left;
+}
+.login-wrapper form .form-group {
+  margin-bottom: 10px;
+}
+.login-wrapper .btn {
+  position: relative;
+}
+.login-wrapper .btn i {
+  position: absolute;
+  right: 9px;
+  top: 8px;
+  font-size: 13px;
+}
+.login-wrapper .form-group, .login-wrapper .btn {
+  width: 300px;
+  margin: auto;
+}
+
+.enter-code {
+  cursor: pointer;
+}
+.enter-code:hover {
+  color: #0275d8 !important;
+}

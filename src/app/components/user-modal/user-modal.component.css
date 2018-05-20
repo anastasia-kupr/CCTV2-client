@@ -1,28 +1,35 @@
 .user-managment-container {
     padding-top: 20px; }
   
-  .users-table {
-    margin-top: 15px; }
-    .users-table input {
-      background-color: transparent;
-      border-color: transparent; }
-    .users-table select {
-      margin-bottom: 0; }
-    .users-table .custom-select:disabled {
-      background-color: transparent;
-      color: inherit; }
+.users-table {
+    margin-top: 15px;
+}
+.users-table input {
+  background-color: transparent;
+  border-color: transparent;
+}
+.users-table select {
+  margin-bottom: 0;
+}
+.users-table .custom-select:disabled {
+  background-color: transparent;
+  color: inherit;
+}
   
-  .text-center {
-    text-align: center; }
+.text-center {
+  text-align: center;
+}
   
-  .user-property {
-    cursor: pointer; }
+.user-property {
+  cursor: pointer;
+}
   
-  @media (min-width: 540px) {
-    .users-table.table.table-scroll-x {
-      display: table;
-      width: 100%; } }
-
+@media (min-width: 540px) {
+  .users-table.table.table-scroll-x {
+    display: table;
+    width: 100%;
+  }
+}
 
 .form-control.invalid:focus {
     box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.25);
