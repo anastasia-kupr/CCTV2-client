@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AuthService} from '../../services/auth.service';
+import {CONFIG} from '../../../../config';
 import * as $ from 'jquery';
 
 @Component({
@@ -36,7 +37,7 @@ export class ProfileComponent implements OnInit {
       return;
     }
     var body = Object.assign({}, this.user);
-    return this.http.put('http://localhost:3000/user/' + this.user.uuid, body).subscribe((data: any) => {
+    return this.http.put(CONFIG.serverURL + '/user/' + this.user.uuid, body).subscribe((data: any) => {
       if (!data) return;
     });
 
@@ -46,7 +47,7 @@ export class ProfileComponent implements OnInit {
 
     this.userData = this.authService.getUserData();
 
-    this.http.get('http://localhost:3000/user/' + this.userData.uuid).subscribe((data: any) => {
+    this.http.get(CONFIG.serverURL + '/user/' + this.userData.uuid).subscribe((data: any) => {
       if (data) {
         this.user = data;
         this.user.password = "";

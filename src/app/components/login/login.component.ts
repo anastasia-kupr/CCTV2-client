@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {NgModel} from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import {CONFIG} from '../../../../config';
 import * as $ from 'jquery';
 
 @Component({
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit {
     }
 
     if (!this.codeIsSent) {
-      return this.http.post('http://localhost:3000/login', {
+      return this.http.post(CONFIG.serverURL + '/login', {
         email: this.email,
         password: this.password,
       }).subscribe((data: any) => {
@@ -65,7 +66,7 @@ export class LoginComponent implements OnInit {
       });
     }
 
-    this.http.post('http://localhost:3000/login/' + this.code, {
+    this.http.post(CONFIG.serverURL + '/login/' + this.code, {
       email: this.email,
       password: this.password,
     }).subscribe((data: any) => {

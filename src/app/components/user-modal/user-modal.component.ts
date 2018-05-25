@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Input, Output} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {CONFIG} from '../../../../config';
 import * as $ from 'jquery';
 import {UserManagementComponent} from '../user-management/user-management.component';
 
@@ -33,14 +34,14 @@ export class UserModalComponent implements OnInit {
       $event.stopPropagation();
       return;
     }
-    if ((!this.modalData.user.email) || this.modalData.user.email.indexOf("@") < 0) {
-        alert("Email is not valid");
-        var elem = $('#' + this.id + '-userEmail');
-        elem.addClass('invalid');
-        elem.focus();
-        $event.stopPropagation();
-        return;
-    }
+    // if ((!this.modalData.user.email) || this.modalData.user.email.indexOf("@") < 0) {
+    //     alert("Email is not valid");
+    //     var elem = $('#' + this.id + '-userEmail');
+    //     elem.addClass('invalid');
+    //     elem.focus();
+    //     $event.stopPropagation();
+    //     return;
+    // }
     if ((this.modalData.user.password) && (this.modalData.user.password) && (this.modalData.user.password != this.modalData.user.confirmPassword)) {
       alert("Passwords do not match");
       var elem = $(document.querySelector('#' + this.id + '-password'));
@@ -53,12 +54,12 @@ export class UserModalComponent implements OnInit {
     var body = Object.assign({}, this.modalData.user);
     delete body.confirmPassword;
     if (this.modalData.changing) {
-      return this.http.put('http://localhost:3000/user/' + this.modalData.user.uuid, body).subscribe((data: any) => {
+      return this.http.put(CONFIG.serverURL + '/user/' + this.modalData.user.uuid, body).subscribe((data: any) => {
         if (!data) return;
         this.vote();
       });
     }
-    return this.http.post('http://localhost:3000/user', body).subscribe((data: any) => {
+    return this.http.post(CONFIG.serverURL + '/user', body).subscribe((data: any) => {
       if (!data) return;
       this.vote();
     });

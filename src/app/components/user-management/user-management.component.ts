@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {CONFIG} from '../../../../config';
 import * as $ from 'jquery';
 var userManagementComponent;
 
@@ -54,7 +55,7 @@ export class UserManagementComponent implements OnInit {
   }
 
   getUsersList(): any {
-    return this.http.get('http://localhost:3000/users/').subscribe((data: any) => {
+    return this.http.get(CONFIG.serverURL + '/users/').subscribe((data: any) => {
       if (data) {
         this.users = data;
       }
@@ -68,7 +69,7 @@ export class UserManagementComponent implements OnInit {
   }
 
   removeUser(): any {
-    return this.http.delete('http://localhost:3000/user/' + this.deleteUser.uuid).subscribe((data: any) => {
+    return this.http.delete(CONFIG.serverURL + '/user/' + this.deleteUser.uuid).subscribe((data: any) => {
       this.getUsersList();
     });
   }

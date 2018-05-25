@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AuthService} from '../../services/auth.service';
+import {CONFIG} from '../../../../config';
 import * as $ from 'jquery';
 
 @Component({
@@ -25,17 +26,17 @@ export class HomeComponent implements OnInit {
 
   onRecordClick(): any {
     this.recording = true;
-    return this.http.get('http://localhost:3000/video/start-record').subscribe();
+    return this.http.get(CONFIG.serverURL + '/video/start-record').subscribe();
   }
   onStopRecordClick(): any {
     this.recording = false;
-    return this.http.get('http://localhost:3000/video/stop-record').subscribe();
+    return this.http.get(CONFIG.serverURL + '/video/stop-record').subscribe();
   }
 
   ngOnInit() {
     if (this.authService.getUserData()) this.user = this.authService.getUserData();
 
-    this.http.get('http://localhost:3000/users/').subscribe();
+    this.http.get(CONFIG.serverURL + '/users/').subscribe();
 
     const muteButton = document.getElementById("muteButton");
     let audioTrack;
