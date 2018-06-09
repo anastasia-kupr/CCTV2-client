@@ -5,6 +5,7 @@ import {NgModel} from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import {CONFIG} from '../../../../config';
 import * as $ from 'jquery';
+declare var toastr;
 
 @Component({
   selector: 'app-login',
@@ -62,6 +63,7 @@ export class LoginComponent implements OnInit {
           this.setAuthData(data);
           return;
         }
+        toastr.success('The code was sent to your email');
         this.codeIsSent = true;
       });
     }

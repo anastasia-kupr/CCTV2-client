@@ -31,3 +31,10 @@
     width: 100%;
   }
 }
+.table.table-scroll-x {
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  overflow-x: auto;
+}

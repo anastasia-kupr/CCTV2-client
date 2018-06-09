@@ -1,8 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Router } from '@angular/router';
 import {AuthService} from '../../services/auth.service';
+import {ErrorService} from '../../services/error.service';
 import {CONFIG} from '../../../../config';
 import * as $ from 'jquery';
+declare var toastr;
 
 @Component({
   selector: 'app-profile',
@@ -13,11 +16,14 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private errorService: ErrorService,
+    private router: Router
   ) {}
 
   user: any = {};
   userData: any;
+  
 
   postUser($event): any {
     if (!this.user.password) {
@@ -39,13 +45,19 @@ export class ProfileComponent implements OnInit {
     var body = Object.assign({}, this.user);
     return this.http.put(CONFIG.serverURL + '/user/' + this.user.uuid, body).subscribe((data: any) => {
       if (!data) return;
+      toastr.success('Updated');
     });
 
   }
 
   ngOnInit() {
-
     this.userData = this.authService.getUserData();
+    
+    if (!this.userData) {
+      this.errorService.showMsg('Authorization error');
+      this.router.navigate(['/login']);
+      return;
+    }
 
     this.http.get(CONFIG.serverURL + '/user/' + this.userData.uuid).subscribe((data: any) => {
       if (data) {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+declare var toastr;
 
 @Injectable()
 export class AuthService {
@@ -12,10 +13,6 @@ export class AuthService {
 
   token = window.localStorage.getItem('token');
 
-  getUser(): any {
-    return this.token;
-  };
-
   static getToken(): any {
     return window.localStorage.getItem('token');
   }
@@ -25,7 +22,8 @@ export class AuthService {
   }
 
   getUserData(): any {
-    return JSON.parse(window.localStorage.getItem('userData'));
+    var userData = JSON.parse(window.localStorage.getItem('userData'));
+    return userData;
   }
 
   setUserData(user): void {
@@ -36,6 +34,7 @@ export class AuthService {
     if (this.token) {
       window.localStorage.removeItem('token');
       window.localStorage.removeItem('userData');
+      console.log('removed token, removed userData');
       this.router.navigate(['/login']);
     }
     this.router.navigate(['/login']);

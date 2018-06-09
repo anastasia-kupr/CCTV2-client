@@ -1,24 +1,30 @@
-<div class="d-flex flex-row align-items-center navigation">
-  <ul class="nav nav-pills d-flex flex-row align-items-center mr-auto p-2">
-    <a routerLink="/home" class="logo">
-      <img src="../../favicon.png" alt="">
-    </a>
-    <li role="presentation" class="{{(url==='/home')?active:notActive}}">
-      <a routerLink="/home">Homepage</a>
-    </li>
-    <li role="presentation" class="{{(url==='/archive')?active:notActive}}">
-      <a routerLink="/archive">Video Archive</a>
-    </li>
-    <li *ngIf="user.role==='admin'" role="presentation" class="{{(url==='/user-management')?active:notActive}}">
-      <a routerLink="/user-management">User Management</a>
-    </li>
-  </ul>
-  <span class="user-buttons p-2">
-    <span class="{{(url==='/profile')?active:notActive}}">
-      <a routerLink="/profile">{{user.email}}</a>
-    </span>
-    <span class="{{(url==='/login')?active:notActive}}">
-      <a routerLink="/login" (click)="logOut()">{{isUserLoggedIn ? "Log Out" : "Login"}}</a>
-    </span>
-  </span>
-</div>
+<nav class="d-flex flex-row align-items-center navigation sticky-top navbar navbar-expand-lg navbar-light" style="padding-right: 0">
+  <a routerLink="/home" class="logo">
+    <img src="../../favicon.png" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor02" style="width: 100%; padding-right: 0">
+    <ul class="nav navbar-nav nav-pills d-flex align-items-center mr-auto p-2" style="width: 100%; padding-right: 0">
+      <li role="presentation" class="{{(url==='/home')?active:notActive}} p-2 nav-elem">
+        <a routerLink="/home">Homepage</a>
+      </li>
+      <li role="presentation" class="{{(url==='/archive')?active:notActive}} p-2 nav-elem">
+        <a routerLink="/archive">Video Archive</a>
+      </li>
+      <li *ngIf="user && user.role==='admin'" role="presentation" class="{{(url==='/user-management')?active:notActive}} p-2 nav-elem">
+        <a routerLink="/user-management">User Management</a>
+      </li>
+      <span class="user-buttons p-2 ml-auto nav-elem">
+        <span class="{{(url==='/profile')?active:notActive}}">
+          <a routerLink="/profile">{{user?user.email:''}}</a>
+        </span>
+        <span class="{{(url==='/login')?active:notActive}}">
+          <a routerLink="/login" (click)="logOut()">{{isUserLoggedIn ? "Log Out" : "Login"}}</a>
+        </span>
+      </span>
+    </ul>
+  </div>
+</nav>

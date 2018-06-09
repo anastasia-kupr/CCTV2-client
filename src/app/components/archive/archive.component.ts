@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AuthService} from '../../services/auth.service';
+import {ErrorService} from '../../services/error.service';
 import {CONFIG} from '../../../../config';
+declare var toastr;
 
 @Component({
   selector: 'app-archive',
@@ -12,7 +14,8 @@ export class ArchiveComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private errorService: ErrorService
   ) {}
 
   videoList = [];
@@ -29,6 +32,7 @@ export class ArchiveComponent implements OnInit {
   removeVideo(): void {
     this.http.delete(CONFIG.serverURL + '/video/record/' + this.deleteVideo).subscribe((data: any) => {
       this.getVideoList();
+      toastr.success('Removed');
     });
   }
 
@@ -52,5 +56,4 @@ export class ArchiveComponent implements OnInit {
     this.getVideoList();
     this.user = this.authService.getUserData();
   }
-
 }

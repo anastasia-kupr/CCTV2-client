@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import {ErrorService} from '../../services/error.service';
+declare var toastr;
 
 @Component({
   selector: 'app-header',
@@ -24,7 +26,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private location: Location,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private errorService: ErrorService
   ) {
     this.router.events.subscribe((val) => {
       if (location.path() != '') {
@@ -45,8 +48,14 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isUserLoggedIn = this.authService.getUser();
+    this.isUserLoggedIn = AuthService.getToken();
     this.user = this.authService.getUserData();
+    console.log('this.user=', this.user);
+    if (!this.user) {
+      console.log('!this.user');
+      // this.errorService.showMsg('Authorization error');
+      this.router.navigate(['/login']);
+      return;
+    }
   }
-
 }

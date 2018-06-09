@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CONFIG} from '../../../../config';
 import * as $ from 'jquery';
 var userManagementComponent;
+declare var toastr;
 
 @Component({
   selector: 'app-user-management',
@@ -71,6 +72,7 @@ export class UserManagementComponent implements OnInit {
   removeUser(): any {
     return this.http.delete(CONFIG.serverURL + '/user/' + this.deleteUser.uuid).subscribe((data: any) => {
       this.getUsersList();
+      toastr.success('Removed');
     });
   }
 

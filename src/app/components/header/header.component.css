@@ -10,3 +10,43 @@
 .user-buttons span {
     margin: 0 5px;
 }
+.navbar-toggler {
+    position: absolute;
+    right: 3px;
+    background-color: white;
+}
+.navigation {
+    background-color: white;
+}
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-toggler {
+        display: none;
+    }
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: row;
+    }
+}
+@media (max-width: 991px) {
+    .logo {
+        position: absolute;
+        top: 5px;
+    }
+    .nav-elem {
+        margin-right: auto;
+        height: 34px;
+    }
+    .nav-elem a {
+        height: 100%;
+        padding: 2px 12px;
+    }
+    .nav-elem.user-buttons {
+        margin-left: 0!important;
+        padding-left: 0!important;
+    }
+    .navigation {
+        margin-bottom: 0;
+    }
+    .navbar-nav {
+        margin-top: 32px;
+    }
+}

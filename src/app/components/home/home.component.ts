@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AuthService} from '../../services/auth.service';
 import {CONFIG} from '../../../../config';
 import * as $ from 'jquery';
+declare var toastr;
 
 @Component({
   selector: 'app-home',
@@ -26,11 +27,15 @@ export class HomeComponent implements OnInit {
 
   onRecordClick(): any {
     this.recording = true;
-    return this.http.get(CONFIG.serverURL + '/video/start-record').subscribe();
+    return this.http.get(CONFIG.serverURL + '/video/start-record').subscribe((data: any) => {
+      toastr.success('The recording started');
+    });
   }
   onStopRecordClick(): any {
     this.recording = false;
-    return this.http.get(CONFIG.serverURL + '/video/stop-record').subscribe();
+    return this.http.get(CONFIG.serverURL + '/video/stop-record').subscribe((data: any) => {
+      toastr.success('The recording stoped');
+    });
   }
 
   ngOnInit() {
